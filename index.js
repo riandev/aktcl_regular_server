@@ -15,9 +15,9 @@ const port = 5065;
 
 const MongoClient = require("mongodb").MongoClient;
 // const MongoClient = require("mongodb").MongoClient;
-// const uri = "mongodb://127.0.0.1:27017/aktcl_regular";
-const uri =
-  "mongodb+srv://aktcl:01939773554op5t@cluster0.9akoo.mongodb.net/aktcl_regular?retryWrites=true&w=majority";
+const uri = "mongodb://127.0.0.1:27017/aktcl_regular";
+// const uri =
+//   "mongodb+srv://aktcl:01939773554op5t@cluster0.9akoo.mongodb.net/aktcl_regular?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -86,9 +86,6 @@ client.connect((err) => {
             answer8: answers.ans8,
             answer9: answers.ans9,
             answer10: answers.ans10,
-            answer11dot1: answers.ans11dot1,
-            answer11dot2: answers.ans11dot2,
-            answer12: answers.ans12,
             agentID: answers.agentID,
             callDate: answers.callDate,
             callTime: answers.callTime,
@@ -146,9 +143,6 @@ client.connect((err) => {
             answer7: update.answer7,
             answer9: update.answer9,
             answer10: update.answer10,
-            answer11dot1: update.answer11dot1,
-            answer11dot2: update.answer11dot2,
-            answer12: update.answer12,
             qcChecked: update.qcChecked,
             remarks: update.remarks,
             rating: update.rating,
@@ -1696,11 +1690,11 @@ client.connect((err) => {
         res.send(results);
       });
   });
-  // app.get("*", (req, res) => {
-  //   res.sendFile(
-  //     path.join(__dirname, "../aktcl_regular_client/build", "index.html")
-  //   );
-  // });
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.join(__dirname, "../aktcl_regular_client/build", "index.html")
+    );
+  });
 });
 
 app.get("/", (req, res) => {
